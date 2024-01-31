@@ -1,0 +1,24 @@
+<h1 style="margin-left: 40px;">Login page</h1>
+<br>
+<form (ngSubmit)="Login()" [formGroup]="loginForm" style="margin-left: 40px; width: 400px;">
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" formControlName="username" required>
+        <div *ngIf="loginForm.get('username').hasError('required') && loginForm.get('username').touched" class="text-danger">
+            Username is required.
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" formControlName="password" required>
+        <div *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched" class="text-danger">
+            Password is required.
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Login</button>
+    <br><br>
+    <button type="button" class="btn btn-primary" (click)="goToRegister()">Go to Register</button>
+</form>
+
